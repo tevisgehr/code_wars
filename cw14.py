@@ -1,10 +1,16 @@
 class NextHighestAnagram(object):
 
-    def go(self):
-        pass
+    def go(self, n):
+        n_list = list(str(n))
+        print n_list
+        if (self.is_sorted_original()):
+            print "is_sorted_original:", self.is_sorted_original()
 
     def is_sorted_original(self):
-        pass
+        if (sorted(n_list) == n_list):
+            return True
+        else:
+            return False
 
     def is_pointer1_at_lowest_digit(self):
         pass
@@ -23,6 +29,7 @@ class NextHighestAnagram(object):
 
     def swap_split_sort_combine(self):
         pass
+
 
 
 
