@@ -2,7 +2,7 @@
 cd '.\Python\TevisPrograms\Code Wars'
 python
 import cw14 as cw14
-cw14.next_bigger(1243)
+cw14.next_bigger(1213)
 '''
 class NextHighestAnagram(object):
 
@@ -17,8 +17,12 @@ class NextHighestAnagram(object):
         pointer1 = 1
         pointer2 = 2
 
-        print "is_pointer1_at_lowest_digit:", self.is_pointer1_at_lowest_digit(pointer1)
-        if self.is_pointer1_at_lowest_digit(pointer1):
+        print "is_next_digit_lesser_value__pointer2:", self.is_next_digit_lesser_value__pointer2(n_list, pointer1, pointer2)
+        if self.is_next_digit_lesser_value__pointer2(n_list, pointer1, pointer2):
+            pass
+
+        print "is_pointer2_on_highest_digit:", self.is_pointer2_on_highest_digit(n_list, pointer2)
+        if self.is_pointer2_on_highest_digit(n_list, pointer2):
             pass
 
     def is_sorted_original(self,n_list):
@@ -27,14 +31,11 @@ class NextHighestAnagram(object):
         else:
             return False
 
-    def is_pointer1_at_lowest_digit(self, pointer1):
-        return pointer1 == 1
+    def is_next_digit_lesser_value__pointer2(self, n_list, pointer1, pointer2):
+        return n_list[pointer2] < n_list[pointer1]
 
-    def is_next_digit_lesser_value__pointer2(self):
-        pass
-
-    def is_pointer2_on_highest_digit(self):
-        pass
+    def is_pointer2_on_highest_digit(self, n_list, pointer2):
+        return pointer2 == len(n_list)+1
 
     def move_pointer2_up_one_digit(self):
         pass
