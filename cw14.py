@@ -1,57 +1,33 @@
-class NextHighestAnagram():
+class NextHighestAnagram(object):
     def __init__(self, n):
         self.n = n
 
-    def permutations(iterable, r=None):
-        # permutations('ABCD', 2) --> AB AC AD BA BC BD CA CB CD DA DB DC
-        # permutations(range(3)) --> 012 021 102 120 201 210
-        pool = tuple(iterable)
-        n = len(pool)
-        r = n if r is None else r
-        if r > n:
-            return
-        indices = range(n)
-        cycles = range(n, n-r, -1)
-        yield tuple(pool[i] for i in indices[:r])
-        while n:
-            for i in reversed(range(r)):
-                cycles[i] -= 1
-                if cycles[i] == 0:
-                    indices[i:] = indices[i+1:] + indices[i:i+1]
-                    cycles[i] = n - i
-                else:
-                    j = cycles[i]
-                    indices[i], indices[-j] = indices[-j], indices[i]
-                    yield tuple(pool[i] for i in indices[:r])
-                    break
-            else:
-                return
+    def go(self):
+        pass
+    def is_sorted_original():
+        pass
 
-    def do_stuff(n):
-        #n = 12354
-        z=[]
-        x = list(str(n))
-        print "n= ", n
-        y = list(NextHighestAnagram.permutations(x))
-        print "Number of permutations: ", len(y)
+    def is_pointer1_at_lowest_digit():
+        pass
 
+    def is_next_digit_lesser_value__pointer2():
+        pass
 
-        for i in y:
-            z.append(int(''.join(map(str,i))))
+    def is_pointer2_on_highest_digit():
+        pass
 
-        z = sorted(z)
+    def move_pointer2_up_one_digit():
+        pass
 
-        result = n
+    def move_pointer1_up_one_digit__pointer2_one_higher():
+        pass
 
-        for b in z:
-            if b > n:
-                result = b
-                break
-
-        return result
+    def swap_split_sort_combine():
+        pass
 
 
 
 
 def next_bigger(n):
-    return NextHighestAnagram()
+    nha = NextHighestAnagram(n)
+    nha.go(n)
