@@ -2,7 +2,7 @@
 cd '.\Python\TevisPrograms\Code Wars'
 python
 import cw14 as cw14
-cw14.next_bigger(5451)
+cw14.next_bigger(71723472953999999999999999)
 '''
 class NextHighestAnagram(object):
 
@@ -62,8 +62,17 @@ class NextHighestAnagram(object):
     def swap_split_sort_combine(self, n_list, pointer1, pointer2):
         print "swap_split_sort_combine"
         print n_list, pointer1, pointer2
-
-        #dont forget to n_list.reverse()
+        #swap
+        n_list[pointer1],n_list[pointer2]=n_list[pointer2],n_list[pointer1]
+        lower_digits_list = n_list[:pointer2]
+        print lower_digits_list
+        lower_digits_list.sort()
+        lower_digits_list.reverse()
+        return_list = lower_digits_list + n_list[pointer2:]
+        return_list.reverse()
+        print "return_list:",return_list
+        result=int(''.join(return_list))
+        print result
         exit()
 
 
