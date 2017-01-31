@@ -2,7 +2,7 @@
 cd '.\Python\TevisPrograms\Code Wars'
 python
 import cw14 as cw14
-cw14.next_bigger(78543987654321)
+cw14.next_bigger(59884848459853)
 '''
 class NextHighestAnagram(object):
 
@@ -24,12 +24,14 @@ class NextHighestAnagram(object):
 
     def main_loop(self, n_list, pointer1, pointer2):
         while(True):
-            #print "is_next_digit_lesser_value__pointer2:", self.is_next_digit_lesser_value__pointer2(n_list, pointer1, pointer2)
-            if self.is_next_digit_lesser_value__pointer2(n_list, pointer1, pointer2):
+            #print "is_next_digit_lesser_value:", self.is_next_digit_lesser_value(n_list, pointer1, pointer2)
+            if self.is_next_digit_lesser_value(n_list, pointer1, pointer2):
                 result = self.swap_split_sort_combine(n_list, pointer1, pointer2)
                 #print "RESULT: ",result
                 return result
-
+            secondary_loop_output = self.secondary_loop(n_list, pointer1, pointer2)
+            if (secondary_loop_output != 0):
+                return secondary_loop_output
             #print "is_pointer2_on_highest_digit:", self.is_pointer2_on_highest_digit(n_list, pointer2)
             if self.is_pointer2_on_highest_digit(n_list, pointer2):
                 #print "move_pointer1_up_one_digit__pointer2_one_higher(output):", self.move_pointer1_up_one_digit__pointer2_one_higher(pointer1)
@@ -40,14 +42,20 @@ class NextHighestAnagram(object):
             pointer2 = self.move_pointer2_up_one_digit(pointer2)
 
 
-
+    def secondary_loop(self, n_list, pointer1, pointer2):
+        pointer3 = pointer1
+        while (pointer3 + 1 < pointer2):
+            if self.is_next_digit_lesser_value(n_list, pointer3, pointer2):
+                return self.swap_split_sort_combine(n_list, pointer3, pointer2)
+            pointer3 += 1
+        return 0
     def is_sorted_original(self,n_list):
         if (sorted(n_list) == n_list):
             return True
         else:
             return False
 
-    def is_next_digit_lesser_value__pointer2(self, n_list, pointer1, pointer2):
+    def is_next_digit_lesser_value(self, n_list, pointer1, pointer2):
         return n_list[pointer2] < n_list[pointer1]
 
     def is_pointer2_on_highest_digit(self, n_list, pointer2):
@@ -82,5 +90,6 @@ class NextHighestAnagram(object):
 def next_bigger(n):
     nha = NextHighestAnagram()
     result = nha.go(n)
-    #print result
+    print "n:",n
+    print "result:",result
     return result
