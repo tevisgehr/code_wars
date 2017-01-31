@@ -2,7 +2,7 @@
 cd '.\Python\TevisPrograms\Code Wars'
 python
 import cw14 as cw14
-cw14.next_bigger(59884848459853)
+cw14.next_bigger(1234567890)
 '''
 class NextHighestAnagram(object):
 
@@ -24,6 +24,7 @@ class NextHighestAnagram(object):
 
     def main_loop(self, n_list, pointer1, pointer2):
         while(True):
+            print "MAIN LOOP. pointer1:",pointer1," pointer2:",pointer2
             #print "is_next_digit_lesser_value:", self.is_next_digit_lesser_value(n_list, pointer1, pointer2)
             if self.is_next_digit_lesser_value(n_list, pointer1, pointer2):
                 result = self.swap_split_sort_combine(n_list, pointer1, pointer2)
@@ -42,13 +43,15 @@ class NextHighestAnagram(object):
             pointer2 = self.move_pointer2_up_one_digit(pointer2)
 
 
-    def secondary_loop(self, n_list, pointer1, pointer2):
-        pointer3 = pointer1
-        while (pointer3 + 1 < pointer2):
-            if self.is_next_digit_lesser_value(n_list, pointer3, pointer2):
-                return self.swap_split_sort_combine(n_list, pointer3, pointer2)
+    def secondary_loop(self, n_list, pointera, pointerb):
+        pointer3 = pointera + 1
+        while (pointer3 < pointerb):
+            print "SECONDARY LOOP. pointer3:",pointer3," pointer2:",pointerb
+            if self.is_next_digit_lesser_value(n_list, pointer3, pointerb):
+                return self.swap_split_sort_combine(n_list, pointer3, pointerb)
             pointer3 += 1
         return 0
+
     def is_sorted_original(self,n_list):
         if (sorted(n_list) == n_list):
             return True
