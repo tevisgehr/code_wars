@@ -6,3 +6,5 @@ def solution(number):
         if x % 3 == 0 or x % 5 == 0: sum_naturals += x
 
     return sum_naturals
+
+#
